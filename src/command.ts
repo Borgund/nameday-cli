@@ -1,4 +1,4 @@
-import { Clerc, defineCommand } from "clerc";
+import { Clerc, defineCommand, helpPlugin } from "clerc";
 import { getNamedays, getNamedaysForDate } from "./db.ts";
 const list = defineCommand(
   {
@@ -81,4 +81,5 @@ Clerc.create()
   .command(today)
   .command(list)
   .command(search)
+  .use(helpPlugin())
   .parse();

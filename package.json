@@ -19,6 +19,7 @@
     "typescript": "^5"
   },
   "dependencies": {
+    "@clerc/plugin-help": "^0.44.0",
     "clerc": "^0.44.0"
   }
 }

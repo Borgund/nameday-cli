@@ -4,6 +4,7 @@
     "": {
       "name": "nameday-cli",
       "dependencies": {
+        "@clerc/plugin-help": "^0.44.0",
         "clerc": "^0.44.0",
       },
       "devDependencies": {
