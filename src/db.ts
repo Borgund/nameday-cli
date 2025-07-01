@@ -24,12 +24,16 @@ export function getNamedays(): { name: string; day: number; month: number }[] {
     .all() as { name: string; day: number; month: number }[];
 }
 
-export function searchNamedays(name: string) {
-  return db.prepare("SELECT * FROM navnedager WHERE name LIKE ?").get(name) as {
+export function searchNamedays(name: string): {
+  name: string;
+  day: number;
+  month: number;
+}[] {
+  return db.prepare("SELECT * FROM navnedager WHERE name LIKE ?").all(name) as {
     name: string;
     day: number;
     month: number;
-  };
+  }[];
 }
 
 export function getNamedaysForDate(

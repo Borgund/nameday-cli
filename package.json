@@ -23,7 +23,12 @@
     "typescript": "^5"
   },
   "dependencies": {
+    "@clerc/plugin-completions": "^0.44.0",
+    "@clerc/plugin-friendly-error": "^0.44.0",
     "@clerc/plugin-help": "^0.44.0",
+    "@clerc/plugin-not-found": "^0.44.0",
+    "@clerc/plugin-version": "^0.44.0",
+    "add": "^2.0.6",
     "clerc": "^0.44.0"
   }
 }

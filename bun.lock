@@ -4,7 +4,12 @@
     "": {
       "name": "nameday-cli",
       "dependencies": {
+        "@clerc/plugin-completions": "^0.44.0",
+        "@clerc/plugin-friendly-error": "^0.44.0",
         "@clerc/plugin-help": "^0.44.0",
+        "@clerc/plugin-not-found": "^0.44.0",
+        "@clerc/plugin-version": "^0.44.0",
+        "add": "^2.0.6",
         "clerc": "^0.44.0",
       },
       "devDependencies": {
@@ -39,6 +44,8 @@
     "@types/node": ["@types/node@24.0.8", "", { "dependencies": { "undici-types": "~7.8.0" } }, "sha512-WytNrFSgWO/esSH9NbpWUfTMGQwCGIKfCmNlmFDNiI5gGhgMmEA+V1AEvKLeBNvvtBnailJtkrEa2OIISwrVAA=="],
 
     "@types/text-table": ["@types/text-table@0.2.5", "", {}, "sha512-hcZhlNvMkQG/k1vcZ6yHOl6WAYftQ2MLfTHcYRZ2xYZFD8tGVnE3qFV0lj1smQeDSR7/yY0PyuUalauf33bJeA=="],
+
+    "add": ["add@2.0.6", "", {}, "sha512-j5QzrmsokwWWp6kUcJQySpbG+xfOBqqKnup3OIk1pz+kB/80SLorZ9V8zHFLO92Lcd+hbvq8bT+zOGoPkmBV0Q=="],
 
     "ansi-regex": ["ansi-regex@6.1.0", "", {}, "sha512-7HSX4QQb4CspciLpVFwyRe79O3xsIZDDLER21kERQ71oaPodF8jL725AgJMFAYbooIqolJoRLuM81SpeUkpkvA=="],
 

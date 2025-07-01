@@ -44,48 +44,68 @@ bunx navnedag <command> [options]
 
 ### Local Development
 ```bash
-bun run src/index.ts <command> [options]
+bun run navnedag <command> [options]
+```
+or if you are a bit lazy
+```bash
+bun navnedag <command> [options]
 ```
 
 ## Commands
 
-### `today`
+### `today  [t]`
 Get today's nameday(s).
 
 ```bash
 bunx navnedag today
 ```
 
+```bash
+bunx navnedag t
+```
+
 **Output:** Displays the names celebrated today.
 
-### `search`
+### `search [s]`
 Search for namedays by month and/or day.
 
 ```bash
 bunx navnedag search [options]
 ```
 
+```bash
+bunx navnedag s [options]
+```
+
 **Options:**
+- `--name, -n <string>` - Search for a name.
 - `--month, -m <number>` - Filter by month (1-12)
 - `--day, -d <number>` - Filter by day (1-31)
 
 **Examples:**
 ```bash
+# Search for the nameday of a name
+bunx navnedag search --name adrian
+
 # Search for namedays in March
 bunx navnedag search --month 3
 
 # Search for namedays on March 15th
-bunx navnedag search --month 3 --day 15
+bunx navnedag s --m 3 --d 15
 
 # Search for today's namedays (default behavior)
 bunx navnedag search
 ```
 
-### `list`
+### `list [l]`
 List all namedays in the database.
 
 ```bash
 bunx navnedag list
+```
+
+```bash
+bunx navnedag l
 ```
 
 **Output:** Displays all names with their corresponding dates in the format `Name (day/month)`.

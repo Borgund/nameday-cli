@@ -1,9 +1,18 @@
-import { Clerc, defineCommand, helpPlugin } from "clerc";
-import { getNamedays, getNamedaysForDate } from "./db.ts";
+import {
+  Clerc,
+  completionsPlugin,
+  defineCommand,
+  friendlyErrorPlugin,
+  helpPlugin,
+  notFoundPlugin,
+  versionPlugin,
+} from "clerc";
+import { getNamedays, getNamedaysForDate, searchNamedays } from "./db.ts";
 const list = defineCommand(
   {
     name: "list",
     description: "list all the days",
+    alias: "l",
   },
   () =>
     console.log(
@@ -17,7 +26,13 @@ const today = defineCommand(
   {
     name: "search",
     description: "search for a nameday on a given date",
+    alias: "s",
     flags: {
+      name: {
+        type: String,
+        alias: "n",
+        description: "the name to filter by",
+      },
       month: {
         type: Number,
         alias: "m",
@@ -35,8 +50,11 @@ const today = defineCommand(
   (context) => {
     console.log(
       formatNamedays({
-        namedays: getNamedaysForDate(context.flags.month, context.flags.day),
-        justNames: context.flags.day !== undefined,
+        namedays: context.flags.name
+          ? searchNamedays(context.flags.name)
+          : getNamedaysForDate(context.flags.month, context.flags.day),
+        justNames:
+          context.flags.day !== undefined && context.flags.name === undefined,
       })
     );
   }
@@ -46,7 +64,7 @@ const search = defineCommand(
   {
     name: "today",
     description: "get the name of the day",
-    alias: "",
+    alias: "t",
   },
   (context) => {
     console.log(
@@ -70,7 +88,7 @@ function formatNamedays({
 }) {
   return namedays.map(
     ({ name, day, month }: { name: string; day: number; month: number }) =>
-      justNames ? name : `${name} (${day}/${month})`
+      justNames ? name : `${name} (${day}.${month})`
   );
 }
 
@@ -82,7 +100,8 @@ Clerc.create()
   .command(list)
   .command(search)
   .use(helpPlugin())
-  .errorHandler((error) => {
-    console.log("No such command. for help please try \n navnedag --help");
-  })
+  .use(friendlyErrorPlugin())
+  .use(notFoundPlugin())
+  .use(versionPlugin())
+  .use(completionsPlugin())
   .parse();
