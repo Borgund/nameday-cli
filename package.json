@@ -1,6 +1,6 @@
 {
   "name": "navnedag",
-  "version": "0.0.5",
+  "version": "0.0.8",
   "module": "index.ts",
   "type": "module",
   "private": false,
@@ -8,10 +8,12 @@
     "type": "git",
     "url": "git+https://github.com/Borgund/nameday-cli"
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "bun build src/index.ts --target=bun --outfile=dist/index.js",
-    "navnedag": "bun run src/index.ts",
-    "publish": "bun run build && bun publish"
+    "navnedag": "bun run src/index.ts"
   },
   "bin": {
     "navnedag": "./src/index.ts"
