@@ -77,7 +77,7 @@ function formatNamedays({
 Clerc.create()
   .scriptName("navnedag")
   .description("Your all in one CLI tool for Norwegian namedays")
-  .version("0.0.1")
+  .version("0.0.3")
   .command(today)
   .command(list)
   .command(search)
