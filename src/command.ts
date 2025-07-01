@@ -82,4 +82,7 @@ Clerc.create()
   .command(list)
   .command(search)
   .use(helpPlugin())
+  .errorHandler((error) => {
+    console.log("No such command. for help please try \n navnedag --help");
+  })
   .parse();
