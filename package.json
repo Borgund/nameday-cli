@@ -10,7 +10,7 @@
   },
   "scripts": {
     "build": "bun build src/index.ts --target=bun --outfile=dist/index.js",
-    "dev": "bun run src/index.ts --watch",
+    "navnedag": "bun run src/index.ts",
     "publish": "bun run build && bun publish"
   },
   "bin": {
